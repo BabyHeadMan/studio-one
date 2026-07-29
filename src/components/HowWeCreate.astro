@@ -1,0 +1,38 @@
+---
+const processSteps = [
+  "Research",
+  "Writing",
+  "Story Development",
+  "Visual Development",
+  "Production",
+  "Emerging Technologies",
+  "Editing",
+  "Sound",
+  "Release",
+];
+---
+
+<section id="how-we-create" class="content-section min-h-[85vh]">
+  <div class="w-full max-w-[1100px]">
+    <p class="eyebrow">HOW WE CREATE</p>
+
+    <h2 class="display-xl">
+      Every story begins with a question.
+    </h2>
+
+    <div class="mt-[60px] grid gap-[18px]">
+      {
+        processSteps.map((step, index) => (
+          <div
+            class:list={[
+              "process-item",
+              index === processSteps.length - 1 && "border-b",
+            ]}
+          >
+            {step}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

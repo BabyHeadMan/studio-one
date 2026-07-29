@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@import "./theme.css";
+@import "./typography.css";
+@import "./utilities.css";
+@import "./animations.css";
+
+
+@layer components {
+  .content-section {
+    @apply grid items-center border-t border-white/[0.08] px-[8vw] py-[110px];
+  }
+
+  .section-label,
+  .eyebrow {
+    @apply mb-6 mt-0 text-[0.7rem] tracking-[0.28em] text-studio-ivory/50;
+  }
+
+  .section-copy {
+    @apply text-studio-ivory/70;
+  }
+
+  .display-hero {
+    @apply m-0 font-display font-normal;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .display-xl {
+    @apply m-0 font-display font-normal;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .display-lg {
+    @apply m-0 font-display font-normal;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .story-title {
+    @apply font-display text-[clamp(1.6rem,4vw,3.8rem)];
+
+    line-height: 1.05;
+  }
+
+  .process-item {
+    @apply border-t border-white/[0.12] py-[22px] text-[clamp(1.2rem,2vw,1.8rem)];
+  }
+
+  @media (max-width: 760px) {
+    .content-section {
+      @apply px-[22px] py-[90px];
+    }
+  }
+}

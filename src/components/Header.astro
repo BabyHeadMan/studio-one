@@ -1,0 +1,179 @@
+---
+const navigation = [
+  { label: "ABOUT", href: "#about" },
+  { label: "HOW WE CREATE", href: "#how-we-create" },
+  { label: "CONTACT", href: "#contact" },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-black/90 via-black/60 to-transparent"
+>
+  <div
+    class="flex items-center justify-between px-5 py-5 md:px-9 md:py-6"
+  >
+    <a
+      href="#top"
+      aria-label="Baby Head Man Productions home"
+      class="shrink-0"
+    >
+      <img
+        src="/images/logos/baby-head-man-white-logo.png"
+        alt="Baby Head Man Productions"
+        class="h-auto w-[190px] md:w-[230px]"
+      />
+    </a>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-button"
+      class="cursor-pointer border-0 bg-transparent p-2 text-[0.65rem] tracking-[0.2em] text-studio-ivory md:hidden"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+    >
+      MENU
+    </button>
+
+    <!-- Desktop navigation -->
+    <nav
+      class="hidden items-center gap-[30px] md:flex"
+      aria-label="Primary navigation"
+    >
+      <div class="group relative">
+        <button
+          type="button"
+          class="flex items-center gap-2 pb-[7px] text-[0.67rem] tracking-[0.2em] text-studio-ivory/75 transition-colors duration-200 hover:text-studio-ivory"
+          aria-haspopup="true"
+        >
+          STORIES
+
+          <span
+            class="text-[0.55rem] transition-transform duration-200 group-hover:rotate-180"
+            aria-hidden="true"
+          >
+            ▼
+          </span>
+        </button>
+
+        <div
+          class="invisible absolute left-0 top-full min-w-[170px] translate-y-2 border border-white/10 bg-black/95 p-2 opacity-0 shadow-xl backdrop-blur-md transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+        >
+          <a
+            href="#stories"
+            class="block px-4 py-3 text-[0.65rem] tracking-[0.18em] text-studio-ivory/70 transition hover:bg-white/10 hover:text-white"
+          >
+            FILMS
+          </a>
+
+          <a
+            href="#verticals"
+            class="block px-4 py-3 text-[0.65rem] tracking-[0.18em] text-studio-ivory/70 transition hover:bg-white/10 hover:text-white"
+          >
+            VERTICALS
+          </a>
+        </div>
+      </div>
+
+      {
+        navigation.map((item) => (
+          <a
+            class="group relative pb-[7px] text-[0.67rem] tracking-[0.2em] text-studio-ivory/75 transition-colors duration-200 hover:text-studio-ivory"
+            href={item.href}
+          >
+            {item.label}
+
+            <span
+              class="absolute inset-x-0 bottom-0 h-px origin-right scale-x-0 bg-current transition-transform duration-200 group-hover:origin-left group-hover:scale-x-100"
+              aria-hidden="true"
+            />
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+
+  <!-- Mobile navigation -->
+  <nav
+    id="mobile-navigation"
+    class="hidden border-t border-white/10 bg-black/95 px-5 pb-7 pt-4 backdrop-blur-md md:hidden"
+    aria-label="Mobile navigation"
+  >
+    <details class="border-b border-white/10">
+      <summary
+        class="flex cursor-pointer list-none items-center justify-between py-4 text-[0.72rem] tracking-[0.2em] text-studio-ivory/80 [&::-webkit-details-marker]:hidden"
+      >
+        <span>STORIES</span>
+        <span
+          class="text-base transition-transform duration-200 group-open:rotate-45"
+          aria-hidden="true"
+        >
+          +
+        </span>
+      </summary>
+
+      <div class="pb-4 pl-4">
+        <a
+          href="#stories"
+          class="mobile-nav-link block py-3 text-[0.68rem] tracking-[0.18em] text-studio-ivory/60"
+        >
+          FILMS
+        </a>
+
+        <a
+          href="#verticals"
+          class="mobile-nav-link block py-3 text-[0.68rem] tracking-[0.18em] text-studio-ivory/60"
+        >
+          VERTICALS
+        </a>
+      </div>
+    </details>
+
+    {
+      navigation.map((item) => (
+        <a
+          href={item.href}
+          class="mobile-nav-link block border-b border-white/10 py-4 text-[0.72rem] tracking-[0.2em] text-studio-ivory/80"
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.querySelector("#mobile-menu-button");
+  const mobileNavigation = document.querySelector("#mobile-navigation");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  if (
+    menuButton instanceof HTMLButtonElement &&
+    mobileNavigation instanceof HTMLElement
+  ) {
+    const closeMenu = () => {
+      mobileNavigation.classList.add("hidden");
+      menuButton.textContent = "MENU";
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation");
+    };
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = !mobileNavigation.classList.contains("hidden");
+
+      if (isOpen) {
+        closeMenu();
+      } else {
+        mobileNavigation.classList.remove("hidden");
+        menuButton.textContent = "CLOSE";
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.setAttribute("aria-label", "Close navigation");
+      }
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+</script>

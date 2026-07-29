@@ -1,0 +1,12 @@
+@theme {
+  --color-studio-black: #080808;
+  --color-studio-ivory: #f2eee5;
+  --color-studio-muted: #bcb8b0;
+
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-sans: Arial, Helvetica, sans-serif;
+
+  --radius-large: 1rem;
+
+  --ease-standard: cubic-bezier(.22,.61,.36,1);
+}

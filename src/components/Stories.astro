@@ -1,0 +1,138 @@
+---
+import { stories } from "../data/stories.ts";
+import { verticals } from "../data/verticals.ts";
+---
+
+<section id="stories" class="content-section min-h-[85vh]">
+  <div class="w-full">
+    <p class="eyebrow">NOW SHOWING</p>
+
+    <h2 class="display-xl max-w-[900px]">
+      Different worlds. One studio.
+    </h2>
+
+    <div class="mt-14 grid gap-14">
+      {
+        stories.map((story) => (
+          <article>
+            <!-- Clicking the thumbnail opens the film on YouTube -->
+            <a
+              href={story.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group block overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:border-white/30"
+              aria-label={`Watch ${story.title} on YouTube`}
+            >
+              <div class="relative aspect-video overflow-hidden">
+                <img
+                  src={story.thumbnail}
+                  alt={`${story.title} thumbnail`}
+                  loading="lazy"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+
+                <div
+                  class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="absolute bottom-0 left-0 w-full p-6 md:p-8">
+                  <p class="mb-2 text-[0.68rem] uppercase tracking-[0.28em] text-white/75">
+                    {story.type}
+                  </p>
+
+                  <h3 class="font-display text-[clamp(2rem,4vw,3.5rem)] uppercase tracking-[0.06em] text-white">
+                    {story.title}
+                  </h3>
+                </div>
+              </div>
+            </a>
+
+            <!-- Story accordion -->
+            <details class="group/story border-b border-white/15">
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between py-5 text-[0.7rem] uppercase tracking-[0.28em] text-studio-ivory/75 transition-colors hover:text-studio-ivory [&::-webkit-details-marker]:hidden"
+              >
+                <span>Story</span>
+
+                <span
+                  class="text-lg font-light transition-transform duration-300 group-open/story:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+
+              <div class="grid gap-7 pb-7 md:grid-cols-[minmax(0,800px)_auto] md:items-end md:justify-between">
+                <p class="max-w-[800px] text-base leading-[1.8] text-studio-ivory/70 md:text-lg">
+                  {story.logline}
+                </p>
+
+                <a
+                  href={story.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-fit border-b border-studio-ivory/60 pb-2 text-[0.68rem] uppercase tracking-[0.24em] text-studio-ivory transition-colors hover:border-studio-ivory hover:text-white"
+                >
+                  Watch on YouTube
+                </a>
+              </div>
+            </details>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <div id="verticals" class="mt-24 border-t border-white/10 pt-16">
+  <div class="mb-10 flex items-end justify-between gap-8">
+    <div>
+      <p class="eyebrow">VERTICAL STORIES</p>
+
+      <h3 class="font-display text-[clamp(2.5rem,5vw,5rem)] leading-[1.05] tracking-[-0.02em]">
+        Stories made for the small screen.
+      </h3>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-5 sm:gap-7 lg:grid-cols-3 xl:grid-cols-4">
+    {
+      verticals.map((vertical) => (
+        <a
+          href={vertical.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group block"
+          aria-label={`Watch ${vertical.title}`}
+        >
+          <article>
+            <div class="relative aspect-[9/16] overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors duration-300 group-hover:border-white/30">
+              <img
+                src={vertical.thumbnail}
+                alt={`${vertical.title} vertical thumbnail`}
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"
+                aria-hidden="true"
+              ></div>
+
+              <div class="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                <p class="mb-2 text-[0.62rem] uppercase tracking-[0.25em] text-white/65">
+                  {vertical.type}
+                </p>
+
+                <h4 class="font-display text-[clamp(1.6rem,3vw,2.6rem)] leading-none text-white">
+                  {vertical.title}
+                </h4>
+              </div>
+            </div>
+          </article>
+        </a>
+      ))
+    }
+  </div>
+</div>
+</section>

@@ -1,0 +1,118 @@
+---
+import { stories } from "../data/stories.ts";
+
+const sixOClockMan = stories.find(
+  (story) => story.slug === "six-oclock-man"
+);
+---
+
+<section
+  id="top"
+  class="relative grid min-h-[100svh] items-end overflow-hidden bg-black px-5 pb-[8vh] pt-[120px] md:px-[6vw]"
+>
+  <video
+    id="hero-video"
+    class="absolute inset-0 h-full w-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+  >
+    <source
+      src="/videos/six-oclock-man-trailer.mp4"
+      type="video/mp4"
+    />
+
+    Your browser does not support background video.
+  </video>
+
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/95"
+  ></div>
+
+  <div class="relative z-10 w-full max-w-[1100px] text-left">
+    <p class="mb-7 text-[0.72rem] tracking-[0.34em] opacity-65">
+      FEATURE FILM COMING SOON
+    </p>
+
+    <h1 class="display-hero">
+      SIX O'CLOCK MAN
+    </h1>
+
+    <p
+      class="mt-[34px] max-w-[650px] text-[clamp(1rem,2vw,1.25rem)] leading-[1.7] text-studio-ivory/70"
+    >
+    When the bell tolls six, Don’t eat a lick...
+    </p>
+
+    {
+      sixOClockMan && (
+        <a
+          class="mt-12 inline-block border-b border-studio-ivory/70 pb-2 text-[0.76rem] tracking-[0.26em] transition-opacity hover:opacity-60"
+          href={sixOClockMan.youtubeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WATCH THE TRAILER
+        </a>
+      )
+    }
+  </div>
+
+  <div
+    class="absolute bottom-6 right-5 z-20 flex gap-3 md:bottom-8 md:right-[6vw]"
+  >
+    <button
+      id="hero-play-toggle"
+      type="button"
+      class="border border-white/30 bg-black/40 px-4 py-3 text-[0.65rem] tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white/70"
+      aria-label="Pause hero video"
+    >
+      PAUSE
+    </button>
+
+    <button
+      id="hero-mute-toggle"
+      type="button"
+      class="border border-white/30 bg-black/40 px-4 py-3 text-[0.65rem] tracking-[0.2em] text-white backdrop-blur-sm transition hover:border-white/70"
+      aria-label="Unmute hero video"
+    >
+      SOUND
+    </button>
+  </div>
+</section>
+
+<script>
+  const video = document.querySelector("#hero-video");
+  const playButton = document.querySelector("#hero-play-toggle");
+  const muteButton = document.querySelector("#hero-mute-toggle");
+
+  if (
+    video instanceof HTMLVideoElement &&
+    playButton instanceof HTMLButtonElement &&
+    muteButton instanceof HTMLButtonElement
+  ) {
+    playButton.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playButton.textContent = "PAUSE";
+        playButton.setAttribute("aria-label", "Pause hero video");
+      } else {
+        video.pause();
+        playButton.textContent = "PLAY";
+        playButton.setAttribute("aria-label", "Play hero video");
+      }
+    });
+
+    muteButton.addEventListener("click", () => {
+      video.muted = !video.muted;
+
+      muteButton.textContent = video.muted ? "SOUND" : "MUTE";
+      muteButton.setAttribute(
+        "aria-label",
+        video.muted ? "Unmute hero video" : "Mute hero video"
+      );
+    });
+  }
+</script>
