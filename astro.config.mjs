@@ -1,3 +1,4 @@
+
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
@@ -8,7 +9,7 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
-        mdi: ["instagram", "youtube", "linkedin"],
+        mdi: ["instagram", "youtube", "linkedin", "patreon"],
         "simple-icons": ["tiktok"],
       },
     }),

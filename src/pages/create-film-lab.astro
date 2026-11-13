@@ -1,0 +1,424 @@
+
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BrevoSignup from "../components/BrevoSignup.astro";
+---
+
+
+<Layout>
+  <Header />
+
+  <main class="lab-page">
+    <div class="lab-container">
+
+      <!-- SECTION 1: INTRODUCTION -->
+      <section class="lab-section lab-intro">
+
+        <div class="lab-text">
+          <p class="eyebrow">
+            BABY HEAD MAN PRODUCTIONS PRESENTS
+          </p>
+
+          <h1 class="lab-title">
+            CREATE FILM&nbsp;LAB
+            </h1>
+
+          <h2 class="lab-subtitle">
+            Cinematic storytelling.<br />
+            AI-powered production.
+          </h2>
+
+          <p class="lab-copy">
+            AI filmmaking is more than generating a collection
+            of impressive images. It's about transforming ideas
+            into compelling stories through direction, visual
+            development, character consistency, editing, and sound.
+          </p>
+
+          <p class="lab-copy">
+            Create Film Lab is an upcoming educational initiative
+            from Baby Head Man Productions, sharing the techniques,
+            creative decisions, and production workflows behind
+            our original films.
+          </p>
+        </div>
+
+        <div class="lab-image-placeholder">
+        <img
+            src="/images/create-film-lab/cinematic-storytelling.jpg"
+            alt="The Six O'Clock Man silhouetted against the evening sky"
+            class="lab-image"
+            width="1600"
+            height="2000"
+            fetchpriority="high"
+        />
+        </div>
+
+      </section>
+
+      <!-- SECTION 2: WHAT YOU'LL LEARN -->
+      <section class="lab-section lab-process">
+
+        <div class="lab-image-placeholder">
+        <img
+            src="/images/create-film-lab/creative-process.jpg"
+            alt="A cinematographer holding a vintage film camera in a dramatic scene from The Six O'Clock Man"
+            class="lab-image"
+            width="1600"
+            height="2000"
+            loading="lazy"
+        />
+        </div>
+
+        <div class="lab-text">
+          <p class="eyebrow">WHAT WE'LL EXPLORE</p>
+
+            <h2 class="lab-subtitle">
+            From concept to<br />
+            final cut.
+            </h2>
+
+          <p class="lab-copy">
+            Story development, cinematic prompting, character
+            consistency, scene construction, directing
+            AI-generated performances, editing, sound design,
+            and building complete films using emerging technologies.
+          </p>
+
+          <p class="lab-copy">
+            Learn about the creative decisions and production
+            methods that bring individual AI-generated shots
+            together into complete cinematic stories.
+          </p>
+        </div>
+
+      </section>
+
+      <!-- SECTION 3: INTEREST LIST -->
+      <section class="lab-signup" id="interest-list">
+
+        <div class="signup-container">
+
+          <p class="eyebrow">GET EARLY ACCESS UPDATES</p>
+
+          <h2 class="lab-subtitle">
+            Be part of what's next.
+          </h2>
+
+          <p class="signup-description">
+            Create Film Lab is taking shape. Join our interest
+            list to receive updates about upcoming tutorials,
+            educational resources, and future learning
+            opportunities.
+          </p>
+        
+            <BrevoSignup />
+            
+          <p class="lab-disclaimer">
+            No spam. Just Create Film Lab updates.
+            Unsubscribe anytime.
+          </p>
+
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+ /* GENERAL PAGE */
+
+  .lab-page {
+    background: #080808;
+    color: #f0ede6;
+    padding: 150px 6vw 120px;
+  }
+
+  .lab-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+  .lab-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* MAIN SECTIONS */
+
+  .lab-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 90px;
+    padding: 70px 0 110px;
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+  }
+
+  .lab-intro {
+    padding-top: 0;
+  }
+
+  .lab-process {
+    padding-top: 110px;
+  }
+
+  /* TYPOGRAPHY */
+
+  .lab-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    line-height: 1.04;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    margin: 28px 0 45px;
+  }
+
+  .lab-subtitle {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 3.2vw, 3.4rem);
+    line-height: 1.14;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    margin: 0 0 32px;
+  }
+
+  .lab-copy {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #bcb9b3;
+    margin: 0 0 22px;
+    max-width: 530px;
+  }
+
+  .lab-text {
+    min-width: 0;
+  }
+
+  .lab-text .eyebrow {
+    margin-bottom: 26px;
+  }
+
+  /* IMAGE PLACEHOLDERS */
+
+  .lab-image-placeholder {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 520px;
+    background:
+      linear-gradient(145deg, #242321, #111110 65%, #191817);
+    border: 1px solid rgba(255,255,255,0.15);
+    overflow: hidden;
+  }
+
+  .lab-image-placeholder::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(255,255,255,0.07);
+    pointer-events: none;
+  }
+
+  .placeholder-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    padding: 24px;
+    color: #918e89;
+  }
+
+  .placeholder-content span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+  }
+
+  .placeholder-content strong {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    color: #c5c1bb;
+  }
+
+  .placeholder-content small {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+  }
+
+  /* SIGNUP SECTION */
+
+  .lab-signup {
+    padding: 130px 0 80px;
+    text-align: center;
+  }
+
+  .signup-container {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .lab-signup .eyebrow {
+    margin-bottom: 30px;
+  }
+
+  .lab-signup .lab-subtitle {
+    margin-bottom: 30px;
+  }
+
+  .signup-description {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #bcb9b3;
+    margin: 0 auto 48px;
+    max-width: 620px;
+    text-wrap: balance;
+  }
+
+  /* FORM */
+
+.lab-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: left;
+  width: 100%;
+  max-width: 380px;
+  margin: 38px auto 0;
+}
+
+  .lab-field {
+    width: 100%;
+  }
+
+  .lab-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #dedbd5;
+  }
+
+  .lab-field input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 54px;
+    padding: 14px 16px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 0;
+    color: #f0ede6;
+    font: inherit;
+    font-size: 0.95rem;
+    outline: none;
+  }
+
+  .lab-field input:focus {
+    border-color: #f0ede6;
+  }
+
+  .lab-field input::placeholder {
+    color: #77736e;
+  }
+
+  .lab-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: fit-content;
+    margin-top: 14px;
+    padding: 17px 28px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 0;
+    color: #f0ede6;
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  .lab-disclaimer {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: #8e8a84;
+    margin-top: 24px;
+  }
+
+  /* TABLETS */
+
+  @media (max-width: 950px) {
+    .lab-section {
+      gap: 45px;
+    }
+
+    .lab-title {
+      font-size: clamp(2.7rem, 5vw, 4rem);
+    }
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 768px) {
+    .lab-page {
+      padding: 125px 7vw 70px;
+    }
+
+    .lab-process .lab-text {
+    order: 1;
+    }
+
+.lab-process .lab-image-placeholder {
+    order: 2;
+    }
+
+    .lab-section {
+      grid-template-columns: 1fr;
+      gap: 45px;
+      padding: 45px 0 75px;
+    }
+
+    .lab-intro {
+      padding-top: 0;
+    }
+
+    .lab-process {
+      padding-top: 75px;
+    }
+
+    .lab-title {
+      font-size: clamp(2.8rem, 9vw, 4rem);
+      margin: 25px 0 35px;
+    }
+
+    .lab-subtitle {
+      font-size: clamp(2rem, 7vw, 3rem);
+    }
+
+    .lab-image-placeholder {
+      max-width: 100%;
+    }
+
+    .lab-signup {
+      padding: 90px 0 50px;
+    }
+  }
+</style>
